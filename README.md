@@ -41,6 +41,7 @@ A full-stack MERN (MongoDB, Express.js, React, Node.js) application that combine
 - Live updates across all connected clients
 - Instant task creation/updates/deletion sync
 - Real-time drag-and-drop synchronization
+- **Team Chat**: Real-time group messaging for every board
 - Socket.io room-based broadcasting per board
 
 ### 📊 Activity Tracking
@@ -52,7 +53,27 @@ A full-stack MERN (MongoDB, Express.js, React, Node.js) application that combine
 ### 🔍 Search & Filters
 - Search tasks by title
 - Filter tasks by assigned users
+- Filter tasks by assigned users
 - Pagination support for large datasets
+
+## 🏗️ System Architecture
+
+The application follows a monolithic client-server architecture with real-time capabilities:
+
+1.  **Client Layer (Frontend)**:
+    -   **React.js** SPA (Single Page Application)
+    -   **Redux Toolkit** for complex state management (Boards, Lists, Tasks, Auth)
+    -   **Socket.io Client** for listening to real-time events (`taskUpdated`, `taskMoved`, etc.)
+    -   **Tailwind CSS** for responsive styling
+
+2.  **API Layer (Backend)**:
+    -   **Node.js & Express** REST API for CRUD operations
+    -   **Socket.io Server** for bidirectional event-based communication
+    -   **JWT Middleware** for secure request authentication
+
+3.  **Data Layer**:
+    -   **MongoDB** for flexible, document-based storage
+    -   **Mongoose** schemas for data validation and relationships (User -> Board -> List -> Task)
 
 ## 🛠️ Tech Stack
 
@@ -312,22 +333,6 @@ cd server
 npm test
 ```
 
-## 🚢 Deployment
-
-### Backend Deployment (Heroku/Railway/Render)
-1. Set environment variables in your hosting platform
-2. Deploy the `server` directory
-3. Ensure MongoDB connection string is set correctly
-
-### Frontend Deployment (Vercel/Netlify)
-1. Build the client:
-   ```bash
-   cd client
-   npm run build
-   ```
-2. Deploy the `build` folder
-3. Update API URLs to point to production backend
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
@@ -341,7 +346,9 @@ This project is licensed under the MIT License.
 ### Planned Features
 - [ ] Email notifications
 - [ ] File attachments to tasks
-- [ ] Comments on tasks
+- [ ] Email notifications
+- [ ] File attachments to tasks
+- [ ] Board templates
 - [ ] Board templates
 - [ ] Calendar view
 - [ ] Task labels/tags
@@ -350,6 +357,7 @@ This project is licensed under the MIT License.
 - [ ] Dark mode
 - [ ] Bulk task operations
 
+#
 
 ---
 
