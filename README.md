@@ -350,9 +350,6 @@ This project is licensed under the MIT License.
 - [ ] Dark mode
 - [ ] Bulk task operations
 
-## 💬 Support
-
-For support, email support@taskcollab.com or open an issue on GitHub.
 
 ---
 
